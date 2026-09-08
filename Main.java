@@ -2,26 +2,21 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-         JPanel panel =new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
+        Animales refugio = new Animales(); 
         boolean Salir = false;
 
-        Animales refugio = new Animales();
             while (!Salir) {
-                JTextField opciones = mostrarmenu();
         
-        int opcionSeleccionada = 
-                        Integer.parseInt(opciones.getText().trim());
+        int opcionSeleccionada = mostrarmenu(); 
 
                     switch (opcionSeleccionada) {
-                    case 1:
+                    case 0:
                         refugio.espaciosAnimales();
                         break;
-                    case 2:
+                    case 1:
                         registroAnimalesRescatados(refugio);
                         break;
-                    case 3: 
+                    case 2: 
                         Salir= true;
 
                     default:
@@ -35,28 +30,22 @@ public class Main {
             }
 
     }
-    public static JTextField mostrarmenu(){
-        JPanel panel =new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
-        JTextField opciones = new JTextField();
-
-        panel.add(new JLabel("***SISTEMA DE REFUGIO***"));
-        panel.add(new JLabel("1. Mostrar matriz "));
-        panel.add(new JLabel("2. Registrar animal rescatado"));
-        panel.add(new JLabel("3. salir"));
-        panel.add(new JLabel("Ingrese una opción: "));
-        panel.add(opciones);
-
-        
-        JOptionPane.showConfirmDialog(
+    public static int mostrarmenu(){
+        String[] botones = {
+            "Mostrar Albergue",
+            "Registrar animal rescatado",
+            "Salir"
+    };
+        return JOptionPane.showOptionDialog(
             null,
-             panel,
-            "Menú principal",
-            JOptionPane.OK_CANCEL_OPTION
+            "seleccione una opción", 
+            "regugio de animales", 
+            JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                botones,
+                botones[0]
         );
-
-        return opciones;
     }
 
     public static void registroAnimalesRescatados(Animales refugio){
