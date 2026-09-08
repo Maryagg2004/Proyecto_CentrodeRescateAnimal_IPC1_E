@@ -1,18 +1,37 @@
 
 public class Animales{
-    public static final int TAM_FILA = 5;
-    public static final int TAM_COLUMNA = 10;
-
+    private static final int TAM_FILA = 5;
+    private static final int TAM_COLUMNA = 10;
     private String[][] animales;
+    private int cantidadAnimales = 0;
+
+    public Animales(){
+        animales = new String[TAM_COLUMNA][TAM_FILA];
+    }
 
     public void espaciosAnimales() {
-        animales = new String[TAM_FILA][TAM_COLUMNA];
         for (int i=0; i < animales.length; i++) {
             for (int j=0; j < animales[i].length ; j++ ) {
                 System.out.print(animales[i][j] + " ");
             }
           System.out.println();
         }
+    }
+    public boolean guardarAnimal(String codigo, String especie, String edad, String estadoClinico, String estadoAdopcion){
+        
+        if (cantidadAnimales >= animales.length) {
+            return false;
+        }
+
+        animales[cantidadAnimales][0] = codigo;
+        animales[cantidadAnimales][1] = especie;
+        animales[cantidadAnimales][2] = edad;
+        animales[cantidadAnimales][3] = estadoClinico;
+        animales[cantidadAnimales][4] = estadoAdopcion;
+
+        cantidadAnimales++;
+        espaciosAnimales();
+        return true;
     }
 
     public static boolean validacionCodigo(String codigo) {
@@ -60,7 +79,8 @@ public class Animales{
         return false;
     }
      public static void main(String[] args){
-
+        Animales refugio = new Animales();
+        refugio.espaciosAnimales();
      }
 
 }
