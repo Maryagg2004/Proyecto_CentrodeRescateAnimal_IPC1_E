@@ -11,7 +11,7 @@ public class Main {
 
                     switch (opcionSeleccionada) {
                     case 0:
-                        refugio.espaciosAnimales();
+                        refugio.mostrarAnimales();
                         break;
                     case 1:
                         registroAnimalesRescatados(refugio);
@@ -112,7 +112,7 @@ public class Main {
                                 if (refugio.animalEliminado(codigo.getText().trim())) {
                                 return ;
                             }
-                            
+
                         if(codigoValido
                          && especieValida 
                             && edadValida
