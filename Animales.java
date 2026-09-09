@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Animales{
     private static final int TAM_FILA = 5;
@@ -6,7 +7,7 @@ public class Animales{
     private int cantidadAnimales = 0;
 
     public Animales(){
-        animales = new String[TAM_COLUMNA][TAM_FILA];
+        animales = new String[TAM_FILA][TAM_COLUMNA];
     }
 
     public void espaciosAnimales() {
@@ -22,7 +23,7 @@ public class Animales{
         if (cantidadAnimales >= animales.length) {
             return false;
         }
-
+    
         animales[cantidadAnimales][0] = codigo;
         animales[cantidadAnimales][1] = especie;
         animales[cantidadAnimales][2] = edad;
@@ -82,5 +83,46 @@ public class Animales{
         Animales refugio = new Animales();
         refugio.espaciosAnimales();
      }
+     /*public boolean codigoRepetido(String codigo) {
+        for (int fila = 0; fila < animales.length; fila ++) {
+            if (animales[fila][0] != null
+                && animales[fila][0].equalsIgnoreCase(codigo)) {
+                    
+                    String validacionCodigo = animales[fila][0];
 
+                    if (codigo == validacionCodigo) {
+                        JOptionPane.showMessageDialog(
+                            null,
+                            "Este código ya fue asignado a un animal"
+                        );
+                    }
+                    return true;
+                }
+            return false;
+        }
+     }*/
+     public boolean animalEliminado(String codigo) {
+        for (int fila = 0; fila < animales.length; fila ++) {
+        if (animales[fila][0] != null
+            && animales[fila][0].equalsIgnoreCase(codigo)) {
+            
+                String estadoAdopcion = animales[fila][4];
+
+                if ("ELIMINADO".equalsIgnoreCase(estadoAdopcion)) {
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Este código perteneció a un animal eliminado "
+                        + "y no puede reutilizarse."
+                    );
+                } else {
+                    JOptionPane.showMessageDialog(
+                        null,"Este código ya está registrado."
+                    );
+                }
+
+                return true;
+            }
+        }
+          return false;
+     }      
 }

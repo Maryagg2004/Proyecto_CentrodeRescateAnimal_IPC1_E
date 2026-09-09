@@ -20,10 +20,6 @@ public class Main {
                         Salir= true;
 
                     default:
-                        JOptionPane.showMessageDialog(
-                            null,
-                            "Opcion invalida, intente de nuevo."
-                        );
                         
                     }
 
@@ -94,25 +90,6 @@ public class Main {
                     String ClinicoIngresado = estadoClinico.getText();
                     String AdopcionIngresado = estadoAdopcion.getText();
 
-                    boolean guardado = refugio.guardarAnimal(
-                        codigoIngresado,
-                        especieIngresada,
-                        edadTexto,
-                        ClinicoIngresado,
-                        AdopcionIngresado
-                    );
-                    if (guardado) {
-                        JOptionPane.showMessageDialog(
-                            null,
-                            "Animal guardado correctamente"
-                        );
-                    } else {
-                        JOptionPane.showMessageDialog(
-                            null,
-                            "No hay espacios disponibles"
-                        );
-                        break;
-                    }
                     try{
         
                         int edadIngresada = Integer.parseInt(edadTexto);
@@ -132,6 +109,10 @@ public class Main {
                         boolean adopcionValido =
                                 Animales.estadoAdopcion(AdopcionIngresado);
 
+                                if (refugio.animalEliminado(codigo.getText().trim())) {
+                                return ;
+                            }
+                            
                         if(codigoValido
                          && especieValida 
                             && edadValida
@@ -145,25 +126,50 @@ public class Main {
                                 + "\nEstado clínico: " + estadoClinico.getText()
                                 + "\nEstado de adopción: " + estadoAdopcion.getText()
                             );
-                        } else {
-                            JOptionPane.showMessageDialog(null, 
-                             "uno o varios datos no son válidos"
-                             + "\nCódigo: " + codigo.getText()
-                             + "\nEspecie: " + especie.getText()
-                             +"\nEdad: " + edad.getText()
-                             + "\nEstado clínico: " + estadoClinico.getText()
-                             + "\nEstado de adopción: " + estadoAdopcion.getText()
-                             + "\nVUELVA A INTENTARLO",
-                                "Error", 
-                                 JOptionPane.ERROR_MESSAGE
-                                    );
+                            
+
+                            boolean guardado = refugio.guardarAnimal(
+
+                               codigoIngresado,
+                                especieIngresada,
+                                edadTexto,
+                                ClinicoIngresado,
+                                AdopcionIngresado
+                                );  
+
+                                if (guardado) {
+                                    JOptionPane.showMessageDialog(
+                                    null,
+                                    "Animal guardado correctamente"
+                                );
+                                } else {
+                                JOptionPane.showMessageDialog(
+                                    null,
+                                    "No hay espacios disponibles"
+                                );
+                                break;
                                 }
-                    } catch (NumberFormatException error) {
-                        JOptionPane.showMessageDialog(
-                            null,
-                            "La edad debe ser un número entero",
-                        "Error",
-                    JOptionPane.ERROR_MESSAGE);
+
+                            } else {
+                                JOptionPane.showMessageDialog(null, 
+                                 "uno o varios datos no son válidos"
+                                 + "\nCódigo: " + codigo.getText()
+                                 + "\nEspecie: " + especie.getText()
+                                 +"\nEdad: " + edad.getText()
+                                 + "\nEstado clínico: " + estadoClinico.getText()
+                                 + "\nEstado de adopción: " + estadoAdopcion.getText()
+                                 + "\nVUELVA A INTENTARLO",
+                                    "Error", 
+                                     JOptionPane.ERROR_MESSAGE
+                                        );
+                                    }
+                        } catch (NumberFormatException error) {
+                            JOptionPane.showMessageDialog(
+                                null,
+                                "Error",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE
+                            );
                     }
                 }   
             }
