@@ -34,8 +34,8 @@ public class Main {
     };
         return JOptionPane.showOptionDialog(
             null,
-            "seleccione una opción", 
-            "regugio de animales", 
+            "Seleccione una opción", 
+            "Refugio de animales", 
             JOptionPane.DEFAULT_OPTION,
                 JOptionPane.INFORMATION_MESSAGE,
                 null,

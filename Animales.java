@@ -10,7 +10,7 @@ public class Animales{
         
      }
 
-    private Animales(){
+    public Animales(){
         animales = new String[TAM_FILA][TAM_COLUMNA];
     }
 
@@ -41,32 +41,47 @@ public class Animales{
     
     public void mostrarAnimales(){
 
-        String datos = "";
+        boolean cerrarVista = false;
 
-        for (int fila = 0; fila <animales.length; fila ++) {
-            if (animales[fila][0] != null) {
+        while (!cerrarVista) {
 
-                datos +="Código: " + animales[fila][0] + "\n";
-                datos +="Especie: " + animales[fila][1] + "\n";
-                datos +="Edad: " + animales[fila][2] + "\n";
-                datos +="Estado clínico: " + animales[fila][3] + "\n";
-                datos +="Estado adopción: " + animales[fila][4] + "\n";
-                datos += "=========================\n";
+            String datos = "";
 
+            for (int fila = 0; fila <animales.length; fila ++) {
+            
+                if (animales[fila][0] != null) {
+
+                    datos +="Código: " + animales[fila][0] + "\n";
+                    datos +="Especie: " + animales[fila][1] + "\n";
+                    datos +="Edad: " + animales[fila][2] + "\n";
+                    datos +="Estado clínico: " + animales[fila][3] + "\n";
+                    datos +="Estado adopción: " + animales[fila][4] + "\n";
+                    datos += "=========================\n";
+
+                }
             }
-        }
-
+            
         if (datos.isEmpty()){
             datos = "No hay animales registrados.";
-        
         }
 
-        JOptionPane.showMessageDialog(
-            null,
-            datos,
-            "Animales registrados",
-            JOptionPane.INFORMATION_MESSAGE
-        );
+        int opcion = opcionesparaeditarAnimales(datos);
+
+        switch (opcion) {
+
+            case 0:
+            case JOptionPane.CLOSED_OPTION:
+                cerrarVista = true;
+                break;
+            case 1:
+                editarAdopciones();
+                break;
+            case 2:
+                /*editarEstadoClinico();*/
+                break;
+        }   
+    }
+        
     }
 
     public static boolean validacionCodigo(String codigo) {
@@ -139,7 +154,79 @@ public class Animales{
           return false;
      }  
      
-     public void editarEstadoAdopcion(){
+     public static int opcionesparaeditarAnimales(String datos){
+       
+        String[] botones = {
+                "Aceptar",
+                "Editar estado de adopción",
+                "Editar estado clínico"
+                };
+                return JOptionPane.showOptionDialog(
+                    null,
+                    datos,
+                    "Refugio de animales",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE, 
+                    null,
+                    botones,
+                    botones[0]
+                );
+    }
+
+    public void editarAdopciones(){
+         /*se selecciona que animal desea editar, se selecciona el código, y se edita, remplazando el dato anteriot*/
+        String codigoBuscado = JOptionPane.showInputDialog(
+            null,
+            "ingrese el código del animal:"
+        );
+
+        if (codigoBuscado == null) {
+             return;
+        } 
         
-     }
+        
+
+        codigoBuscado = codigoBuscado.trim();
+
+        for (int fila = 0; fila < animales.length; fila++) {
+             
+                if (animales[fila][0] != null
+                    && animales[fila][0].equalsIgnoreCase(codigoBuscado)) {
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "Código válido"
+                            );
+
+                        String nuevoEstado = JOptionPane.showInputDialog(
+                            null,
+                            "Estado adopción: " + animales[fila][4]
+                            + "\nIngrese el estado al que se actualizará: "
+                        );  
+
+                        if (nuevoEstado == null || nuevoEstado.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(
+                    null,
+                    "No se realizó ninguna modificación."
+                );
+                return;
+            }
+                }
+                if (animales[fila][0] != "A-[0-9]{3}"){
+                    JOptionPane.showMessageDialog(
+                                null,
+                                "Código invalido"
+                            );
+                            return;
+                    
+                }
+                if (animales[fila][0] == null){
+                    JOptionPane.showMessageDialog(
+                                null,
+                                "Código inexistente"
+                            );
+                            return;
+                    
+                }
+        }
+    }
 }
