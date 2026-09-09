@@ -173,60 +173,86 @@ public class Animales{
                 );
     }
 
-    public void editarAdopciones(){
-         /*se selecciona que animal desea editar, se selecciona el código, y se edita, remplazando el dato anteriot*/
-        String codigoBuscado = JOptionPane.showInputDialog(
+    
+
+    public void editarAdopciones() {
+
+            String codigoBuscado = JOptionPane.showInputDialog(
+           null,
+            "Ingrese el código del animal:"
+    );
+
+    // El usuario presionó Cancelar
+    if (codigoBuscado == null) {
+        return;
+    }
+
+    codigoBuscado = codigoBuscado.trim().toUpperCase();
+
+    // Validar el formato del código ingresado
+    if (!codigoBuscado.matches("A-[0-9]{3}")) {
+        JOptionPane.showMessageDialog(
             null,
-            "ingrese el código del animal:"
+            "Código inválido.\nEjemplo correcto: A-000"
         );
+        return;
+    }
 
-        if (codigoBuscado == null) {
-             return;
-        } 
-        
-        
+    // Buscar el código dentro de toda la matriz
+    for (int fila = 0; fila < animales.length; fila++) {
 
-        codigoBuscado = codigoBuscado.trim();
+        if (animales[fila][0] != null
+                && animales[fila][0].equalsIgnoreCase(codigoBuscado)) {
 
-        for (int fila = 0; fila < animales.length; fila++) {
-             
-                if (animales[fila][0] != null
-                    && animales[fila][0].equalsIgnoreCase(codigoBuscado)) {
-                        JOptionPane.showMessageDialog(
-                                null,
-                                "Código válido"
-                            );
+            String nuevoEstado = JOptionPane.showInputDialog(
+                null,
+                "Estado de adopción actual: "
+                    + animales[fila][4]
+                    + "\nIngrese el nuevo estado:"
+            );
 
-                        String nuevoEstado = JOptionPane.showInputDialog(
-                            null,
-                            "Estado adopción: " + animales[fila][4]
-                            + "\nIngrese el estado al que se actualizará: "
-                        );  
+            
+            // El usuario canceló o dejó el campo vacío
+            if (nuevoEstado == null
+                    || nuevoEstado.trim().isEmpty()) {
 
-                        if (nuevoEstado == null || nuevoEstado.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(
                     null,
                     "No se realizó ninguna modificación."
                 );
                 return;
             }
-                }
-                if (animales[fila][0] != "A-[0-9]{3}"){
-                    JOptionPane.showMessageDialog(
-                                null,
-                                "Código invalido"
-                            );
-                            return;
-                    
-                }
-                if (animales[fila][0] == null){
-                    JOptionPane.showMessageDialog(
-                                null,
-                                "Código inexistente"
-                            );
-                            return;
-                    
-                }
+            boolean estadoValido = 
+                            estadoAdopcion(nuevoEstado);
+            if (!estadoValido) {
+                JOptionPane.showMessageDialog(
+                    null,
+                    "Estado de adopción invalido"
+                );
+                return;
+            }
+
+            // Reemplazar el estado anterior
+            animales[fila][4] =
+                    nuevoEstado.trim().toUpperCase();
+
+            JOptionPane.showMessageDialog(
+                null,
+                "Estado de adopción actualizado correctamente."
+            );
+
+            return;
         }
     }
+
+        // Este mensaje se muestra después de revisar toda la matriz
+        JOptionPane.showMessageDialog(
+            null,
+            "pero no existe un animal registrado con ese código."
+        );
+    }
+                
+                
+        
+    
 }
