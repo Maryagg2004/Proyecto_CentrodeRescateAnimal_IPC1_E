@@ -1,0 +1,41 @@
+09/09/2026 12:16|admin1|AUTENTICACION|LOGIN_OK|Inicio de sesión correcto
+09/09/2026 12:17|admin1|ANIMALES|ALTA|Animal A-000 registrado correctamente
+09/09/2026 12:17|admin1|UBICACIONES|ASIGNAR|Animal A-000 asignado a un espacio libre
+09/09/2026 12:18|admin1|AUTENTICACION|LOGOUT|Cierre de sesión
+11/09/2026 02:53|admin1|AUTENTICACION|LOGIN_OK|Inicio de sesión correcto
+11/09/2026 02:55|admin1|AUTENTICACION|LOGOUT|Cierre de sesión
+11/09/2026 02:58|admin1|AUTENTICACION|LOGIN_OK|Inicio de sesión correcto
+11/09/2026 02:59|admin1|ANIMALES|ALTA|Animal A-014 registrado correctamente
+11/09/2026 02:59|admin1|UBICACIONES|ASIGNAR|Animal A-014 asignado a un espacio libre
+11/09/2026 03:01|admin1|ANIMALES|EDITAR_ADOPCION|Estado de adopción de A-014 actualizado
+11/09/2026 03:02|admin1|AUTENTICACION|LOGOUT|Cierre de sesión
+14/09/2026 11:14|admin1|AUTENTICACION|LOGIN_OK|Inicio de sesión correcto
+14/09/2026 11:16|admin1|ANIMALES|ALTA|Animal A-010 registrado correctamente
+14/09/2026 11:16|admin1|UBICACIONES|ASIGNAR|Animal A-010 asignado a un espacio libre
+14/09/2026 11:24|admin1|ADOPTANTES|ALTA|Adoptante AD-010 registrado correctamente
+14/09/2026 11:26|admin1|ADOPTANTES|ALTA|Adoptante AD-014 registrado correctamente
+14/09/2026 11:27|admin1|ADOPTANTES|ALTA|Adoptante AD-011 registrado correctamente
+14/09/2026 11:36|admin1|ADOPTANTES|EDITAR|Adoptante AD-011 actualizado
+14/09/2026 11:39|admin1|SOLICITUDES|ALTA|Solicitud S-010 registrada correctamente
+14/09/2026 11:39|admin1|SOLICITUDES|APROBAR|Solicitud S-010 aprobada, A-010 pasa a ADOPTADO
+14/09/2026 11:40|admin1|SOLICITUDES|COMPLETAR|Solicitud S-010 completada
+14/09/2026 11:41|admin1|ANIMALES|ALTA|Animal A-011 registrado correctamente
+14/09/2026 11:41|admin1|UBICACIONES|ASIGNAR|Animal A-011 asignado a un espacio libre
+14/09/2026 11:42|admin1|SOLICITUDES|ALTA|Solicitud S-011 registrada correctamente
+14/09/2026 11:43|admin1|SOLICITUDES|RECHAZAR|Solicitud S-011 rechazada
+14/09/2026 11:45|admin1|RESCATES|ALTA|Rescate R-010 registrado correctamente
+14/09/2026 11:46|admin1|RESCATES|ATENDER|Rescate R-010 atendido, vinculado a A-010
+14/09/2026 11:47|admin1|RESCATES|ALTA|Rescate R-011 registrado correctamente
+14/09/2026 11:47|admin1|RESCATES|ATENDER|Rescate R-011 atendido, vinculado a A-011
+14/09/2026 11:47|admin1|RESCATES|ALTA|Rescate R-012 registrado correctamente
+14/09/2026 11:48|admin1|ANIMALES|ALTA|Animal A-012 registrado
+14/09/2026 11:48|admin1|UBICACIONES|ASIGNAR|Animal A-012 asignado a un espacio libre
+14/09/2026 11:48|admin1|RESCATES|ATENDER|Rescate R-012 atendido, vinculado a A-012
+14/09/2026 11:49|admin1|RESCATES|ALTA|Rescate R-015 registrado correctamente
+14/09/2026 11:50|admin1|UBICACIONES|ASIGNAR|Animal A-013 asignado a [0][1]
+14/09/2026 11:51|admin1|UBICACIONES|LIBERAR|Espacio de A-013 liberado
+14/09/2026 11:52|admin1|ANIMALES|ALTA|Animal A-013 registrado correctamente
+14/09/2026 11:52|admin1|UBICACIONES|ASIGNAR|Animal A-013 asignado a un espacio libre
+14/09/2026 11:54|admin1|ANIMALES|ALTA|Animal A-014 registrado correctamente
+14/09/2026 11:54|admin1|UBICACIONES|ASIGNAR|Animal A-014 asignado a un espacio libre
+14/09/2026 11:56|admin1|AUTENTICACION|LOGOUT|Cierre de sesión

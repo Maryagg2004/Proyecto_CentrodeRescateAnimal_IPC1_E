@@ -1,0 +1,22 @@
+09/09/2026 12:15|admin1|AUTENTICACION|LOGIN_FALLIDO|Usuario o contraseña incorrectos (intento 1 de 3).
+09/09/2026 12:16|admin1|AUTENTICACION|LOGIN_FALLIDO|Usuario o contraseña incorrectos (intento 2 de 3).
+11/09/2026 02:48|Administrador|AUTENTICACION|LOGIN_FALLIDO|Usuario o contraseña incorrectos (intento 1 de 3).
+11/09/2026 03:00|admin1|ANIMALES|VALIDACION|No existe un animal con el código A014
+11/09/2026 03:00|admin1|ANIMALES|VALIDACION|No existe un animal con el código a
+11/09/2026 03:01|admin1|ANIMALES|VALIDACION|Estado de adopción inválido, use DISPONIBLE o ADOPTADO
+14/09/2026 11:13|admin1|AUTENTICACION|LOGIN_FALLIDO|Usuario o contraseña incorrectos (intento 1 de 3).
+14/09/2026 11:24|admin1|ADOPTANTES|VALIDACION|Código inválido, use el formato AD-000
+14/09/2026 11:24|admin1|ADOPTANTES|VALIDACION|El nombre solo puede contener letras y espacios
+14/09/2026 11:25|admin1|ADOPTANTES|DUPLICADO|Ya existe un adoptante con el DPI 3018398590101
+14/09/2026 11:27|admin1|ADOPTANTES|VALIDACION|No existe un adoptante con el código A-012
+14/09/2026 11:35|admin1|ADOPTANTES|VALIDACION|El nombre solo puede contener letras y espacios
+14/09/2026 11:37|admin1|SOLICITUDES|VALIDACION|No existe un animal con el código A-014
+14/09/2026 11:38|admin1|SOLICITUDES|VALIDACION|No existe un adoptante con el código AD-10
+14/09/2026 11:39|admin1|SOLICITUDES|ESTADO|La solicitud S-010 no está pendiente
+14/09/2026 11:42|admin1|SOLICITUDES|VALIDACION|Código inválido, use el formato S-000
+14/09/2026 11:43|admin1|SOLICITUDES|ESTADO|La solicitud S-011 no está aprobada
+14/09/2026 11:44|admin1|SOLICITUDES|ESTADO|La solicitud S-011 no está aprobada
+14/09/2026 11:44|admin1|SOLICITUDES|ESTADO|La solicitud S-010 no está aprobada
+14/09/2026 11:45|admin1|RESCATES|VALIDACION|No existe un rescate con el código R-011
+14/09/2026 11:46|admin1|RESCATES|VALIDACION|Fecha inválida, use el formato dd/mm/aaaa
+14/09/2026 11:50|admin1|UBICACIONES|VALIDACION|Fila y columna deben ser números enteros
